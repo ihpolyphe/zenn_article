@@ -2,12 +2,13 @@
 title: "libdevice not found at ./libdevice.10.bcエラーで学習できない"
 emoji: "📌"
 type: "tech" # tech: 技術記事 / idea: アイデア
+topics:
   - "tensorflow"
   - "wsl2"
   - "musika"
   - "annaconda"
 published: true
-published_at: "2023-08-16 19:"
+published_at: "2023-08-16"
 ---
 
 # はじめに
@@ -60,10 +61,10 @@ conda install -c conda-forge cudatoolkit-dev=11.2 --yes
 ```
 
 なお、事前に`libdevice.10.bc `を探してanaconda環境に移動させていたので、それも実行する必要があるかもしれないです。自分は以下にファイルがありました。
-"""
+```
 cd /mnt/c/"Program Files"/"NVIDIA GPU Computing Toolkit"/CUDA/v11.2/nvvm/libdevice
 cp libdevice.10.bc /home/user/miniconda3/lib/nvvm/libdevice/
-"""
+```
 上記完了後再度以下のコマンドで学習させることで、学習を実行させることができました。
 ```
 python musika_train.py --train_path folder_of_encodings --load_path checkpoints/misc --lr 0.00004 --epochs 20
